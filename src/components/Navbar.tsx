@@ -67,7 +67,7 @@ export const Navbar: React.FC = () => {
                 isActive('/vendi-auto') ? 'text-white border-b-2 border-[#E5A93C]' : ''
               }`}
             >
-              <span>Servizio Ritiro Auto</span>
+              <span>Vendi la tua auto</span>
             </Link>
             <Link
               to="/chi-siamo"
@@ -127,15 +127,15 @@ export const Navbar: React.FC = () => {
             className="block text-sm font-bold text-white py-1 flex items-center gap-2"
           >
             <Shield className="w-4 h-4 text-[#E5A93C]" />
-            <span>I Nostri Servizi (Vendita, Permuta, Noleggio, Finanziamenti)</span>
+            <span>Servizi</span>
           </Link>
           <Link
             to="/vendi-auto"
             onClick={() => setMobileMenuOpen(false)}
-            className="block text-sm font-bold text-[#E5A93C] py-1 flex items-center gap-2"
+            className="block text-sm font-bold text-white py-1 flex items-center gap-2"
           >
-            <Tag className="w-4 h-4" />
-            <span>Vendi la tua auto (Valutazione 24h)</span>
+            <Tag className="w-4 h-4 text-[#E5A93C]" />
+            <span>Vendi la tua auto</span>
           </Link>
           <Link
             to="/chi-siamo"

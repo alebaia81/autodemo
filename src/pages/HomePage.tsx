@@ -222,64 +222,68 @@ export const HomePage: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#0F1015]">
       {/* 1. CINEMATIC LUXURY HERO HEADER (ISPIRATO AL BENCHMARK PREMIUMCARS.NL) */}
-      <section className="relative min-h-[85vh] sm:min-h-[90vh] flex flex-col justify-between overflow-hidden bg-[#0A0B0E]">
+      <section className="relative min-h-[82vh] sm:min-h-[90vh] flex flex-col justify-between overflow-hidden bg-[#0A0B0E]">
         {/* Background Vettura ad Altissima Definizione in Movimento */}
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2400&q=95"
             alt="G.Z. Auto Usate Castelvetro Piacentino"
-            className="w-full h-full object-cover object-[70%_center] md:object-[62%_center] transform scale-105 transition-transform duration-1000 ease-out brightness-110 contrast-105"
+            className="w-full h-full object-cover object-[78%_center] sm:object-[70%_center] md:object-[62%_center] transform scale-105 transition-transform duration-1000 ease-out brightness-105 contrast-105"
           />
 
-          {/* Overlay Cinematico: Sfumatura morbida sul testo a sinistra, lasciando nitido e illuminato il retro della Porsche a destra */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0F1015]/95 via-[#0F1015]/55 md:via-[#0F1015]/35 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0F1015]/80 via-transparent to-[#0F1015]/20" />
+          {/* Overlay Cinematico: Sfumatura dall'alto su mobile per proteggere il testo lasciando nitida la vettura */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0F1015]/90 via-[#0F1015]/35 to-transparent sm:hidden" />
+          {/* Overlay Desktop: Sfumatura morbida sul testo a sinistra, lasciando nitido e illuminato il retro della Porsche a destra */}
+          <div className="hidden sm:block absolute inset-0 bg-gradient-to-r from-[#0F1015]/95 via-[#0F1015]/55 md:via-[#0F1015]/35 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0F1015]/85 via-transparent to-[#0F1015]/10" />
         </div>
 
         {/* Spazio Superiore per Navbar */}
-        <div className="pt-8" />
+        <div className="pt-2 sm:pt-8" />
 
-        {/* Contenuto Hero Centrale a Sinistra: Tipografia Editoriale Luxury */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto py-12">
+        {/* Contenuto Hero: Posizionato in alto su mobile per non coprire la vettura, centrato su desktop */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-4 pb-2 sm:py-12 sm:my-auto">
           <div className="max-w-2xl">
             {/* Headline Principale in Font Serif Editoriale (Identica a PREMIUMCARS.NL) */}
-            <h1 className="font-serif text-4xl xs:text-5xl sm:text-6xl lg:text-7xl font-normal text-white tracking-tight leading-[1.08] mb-6">
+            <h1 className="font-serif text-3xl xs:text-4xl sm:text-6xl lg:text-7xl font-normal text-white tracking-tight leading-[1.12] sm:leading-[1.08] mb-3 sm:mb-6 max-w-xl">
               Il viaggio verso la tua <span className="italic font-medium text-[#FFFFFF]">prossima auto.</span>
             </h1>
 
-            {/* Pulsanti di Azione: Tasto Rotondo con Freccia (come nel benchmark) + Tasto Vendi */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mt-8 sm:mt-12">
+            {/* Pulsanti di Azione: Compatti e affiancati su mobile per non coprire l'auto, ampi su desktop */}
+            <div className="flex flex-row items-center gap-2.5 sm:gap-4 mt-4 sm:mt-12">
               <button
                 onClick={scrollToCatalog}
-                className="group inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-[#E5A93C] hover:bg-[#F59E0B] text-black font-extrabold text-sm sm:text-base transition-all duration-300 shadow-xl shadow-[#E5A93C]/20 active:scale-95 cursor-pointer"
+                className="group inline-flex items-center justify-center gap-2 sm:gap-3 px-4 py-2.5 sm:px-6 sm:py-3.5 rounded-full bg-[#E5A93C] hover:bg-[#F59E0B] text-black font-extrabold text-xs sm:text-base transition-all duration-300 shadow-xl shadow-[#E5A93C]/20 active:scale-95 cursor-pointer shrink-0 sm:shrink"
               >
-                <div className="w-7 h-7 rounded-full bg-black text-[#E5A93C] flex items-center justify-center group-hover:translate-x-0.5 transition-transform">
-                  <ArrowRight className="w-4 h-4" />
+                <div className="w-5 h-5 sm:w-7 sm:h-7 rounded-full bg-black text-[#E5A93C] flex items-center justify-center group-hover:translate-x-0.5 transition-transform shrink-0">
+                  <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
                 </div>
-                <span>Guarda subito il nostro parco auto</span>
+                <span className="sm:hidden">Parco auto</span>
+                <span className="hidden sm:inline">Guarda subito il nostro parco auto</span>
               </button>
 
               <Link
                 to="/vendi-auto"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/15 text-white font-bold text-sm sm:text-base border border-white/20 backdrop-blur-md transition-all active:scale-95"
+                className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-4 py-2.5 sm:px-6 sm:py-3.5 rounded-full bg-white/10 hover:bg-white/15 text-white font-bold text-xs sm:text-base border border-white/20 backdrop-blur-md transition-all active:scale-95 shrink-0 sm:shrink"
               >
-                <Banknote className="w-4 h-4 text-[#E5A93C]" />
-                <span>Vuoi vendere la tua auto?</span>
+                <Banknote className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#E5A93C] shrink-0" />
+                <span className="sm:hidden">Vendi auto</span>
+                <span className="hidden sm:inline">Vuoi vendere la tua auto?</span>
               </Link>
             </div>
           </div>
         </div>
 
         {/* Footer Barra Inferiore dell'Hero (Identico a PREMIUMCARS.NL) */}
-        <div className="relative z-10 border-t border-white/10 bg-[#0F1015]/60 backdrop-blur-md py-3.5 px-4 sm:px-8 text-xs text-[#94A3B8]">
-          <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="relative z-10 border-t border-white/10 bg-[#0F1015]/60 backdrop-blur-md py-2.5 sm:py-3.5 px-4 sm:px-8 text-xs text-[#94A3B8]">
+          <div className="max-w-7xl mx-auto flex flex-row items-center justify-between gap-2">
             {/* Sinistra: Stato e Orario */}
-            <div className="flex items-center gap-2">
-              <MapPin className="w-3.5 h-3.5 text-[#E5A93C]" />
-              <span className="text-white font-medium">Castelvetro Piacentino (PC)</span>
-              <span>•</span>
-              <Clock className="w-3.5 h-3.5 text-[#10B981]" />
-              <span>Aperto oggi fino alle 19:30</span>
+            <div className="flex items-center gap-2 text-[11px] sm:text-xs">
+              <MapPin className="w-3.5 h-3.5 text-[#E5A93C] shrink-0" />
+              <span className="text-white font-medium">Castelvetro Piacentino</span>
+              <span className="text-[#64748B]">•</span>
+              <Clock className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
+              <span className="text-[#94A3B8]">Aperto fino alle 19:30</span>
             </div>
 
             {/* Centro: Scroll con freccia animata */}
